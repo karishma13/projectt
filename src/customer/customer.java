@@ -147,6 +147,7 @@ public class customer extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         viewMenu vm=new viewMenu();
+        //kiki
         vm.setVisible(true);
         this.setVisible(false);
         

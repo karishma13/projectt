@@ -30,6 +30,7 @@ public class DatabaseConnection {
         catch(Exception e)
         {
             JOptionPane.showMessageDialog(null, e);
+            
         }
         return null;
     }
