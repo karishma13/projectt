@@ -14,7 +14,7 @@ public class password
     // This our Password generating method
     // We have use static here, so that we not to
     // make any object for it
-    static char[] geek_Password(int len)
+   public static char[] geek_Password(int len)
     {
        
  

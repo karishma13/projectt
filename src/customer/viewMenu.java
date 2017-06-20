@@ -257,7 +257,8 @@ for(int i=0; i < data.length; i++){
                
            rs = (OracleResultSet) pst.executeQuery();
            
-            JOptionPane.showMessageDialog(null,"DATA SAVED.");
+            JOptionPane.showMessageDialog(null,"ORDER PLACED!");
+            this.setVisible(false);
          
         }
        catch(Exception e){

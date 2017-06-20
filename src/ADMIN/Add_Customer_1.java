@@ -46,7 +46,11 @@ public class Add_Customer_1 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("jdbc:oracle:thin:@localhost:1521:XEPU").createEntityManager();
+        customerDetailsQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM CustomerDetails c");
+        customerDetailsList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : customerDetailsQuery.getResultList();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,18 +64,26 @@ public class Add_Customer_1 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        ID = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        fetchid = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         demo = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 255));
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel2.setText("NAME");
 
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel3.setText("CONTACT NO.");
 
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel4.setText("ADDRESS");
 
         address.setColumns(20);
@@ -92,13 +104,21 @@ public class Add_Customer_1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel5.setText("E-MAIL ");
 
-        jLabel6.setText("Fetch ID");
+        jLabel6.setText("Fetch Details For ID:");
 
-        ID.addActionListener(new java.awt.event.ActionListener() {
+        fetchid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDActionPerformed(evt);
+                fetchidActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("FETCH");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -110,12 +130,11 @@ public class Add_Customer_1 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -123,15 +142,18 @@ public class Add_Customer_1 extends javax.swing.JFrame {
                                     .addComponent(contactno)
                                     .addComponent(name)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                    .addComponent(email)))))
+                                    .addComponent(email)))
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(fetchid, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(124, 124, 124)
+                        .addComponent(jButton2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,46 +171,53 @@ public class Add_Customer_1 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(31, 31, 31)
-                .addComponent(jButton3)
-                .addGap(27, 27, 27)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41))
+                    .addComponent(fetchid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addGap(19, 19, 19))
         );
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel1.setText("CREATE NEW CUSTOMER");
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        demo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "NAME", "CONTACT", "E-Mail"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Long.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, customerDetailsList, demo);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${password}"));
+        columnBinding.setColumnName("Password");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${login}"));
+        columnBinding.setColumnName("Login");
+        columnBinding.setColumnClass(java.math.BigDecimal.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${address}"));
+        columnBinding.setColumnName("Address");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${email}"));
+        columnBinding.setColumnName("Email");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${contact}"));
+        columnBinding.setColumnName("Contact");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${name}"));
+        columnBinding.setColumnName("Name");
+        columnBinding.setColumnClass(String.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();
         jScrollPane2.setViewportView(demo);
+
+        jLabel1.setFont(new java.awt.Font("Vani", 2, 18)); // NOI18N
+        jLabel1.setText("ENTER CUSTOMER DETAILS");
+
+        jLabel7.setFont(new java.awt.Font("Vani", 2, 18)); // NOI18N
+        jLabel7.setText("EXISTING DATABASE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -197,41 +226,50 @@ public class Add_Customer_1 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jLabel1)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addContainerGap(77, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
+                        .addGap(37, 37, 37))))
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        DefaultTableModel model=(DefaultTableModel) demo.getModel();
-        model.addRow(new Object[]{name.getText(),contactno.getText(),email.getText()});
-        
-         conn=DatabaseConnection.connectdb();
-        
-        
-         try{
-          
-            String sql = "insert into customer_details(name,contactno,email,address,login_id,password) values(?,?,?,?,?,?)";
+
+      
+
+        conn=DatabaseConnection.connectdb();
+
+        try{
+
+            String sql = "insert into customer_details(name,contact,email,address,login,password) values(?,?,?,?,?,?)";
             pst = (OraclePreparedStatement) conn.prepareStatement(sql);
 
             pst.setString(1,name.getText());
@@ -239,61 +277,101 @@ public class Add_Customer_1 extends javax.swing.JFrame {
             pst.setString(3, email.getText());
             pst.setString(4, address.getText());
             String email_id=email.getText();
-             login_id l=new login_id();
-             String login=String.copyValueOf(l.OTP(4));
-             
-             password p=new password();
-             String passwords=String.copyValueOf(p.geek_Password(4));
-             String cmd="insert into credentials(user_id,password)values(?,?)";
-              pst1 = (OraclePreparedStatement) conn.prepareStatement(cmd);
-             pst1.setString(1,login);
-             pst1.setString(2,passwords);
-             String arg="hi! your login id is "+login+" and your password is "+passwords;
+            login_id l=new login_id();
+            String login=String.copyValueOf(l.OTP(4));
+
+            password p=new password();
+            String passwords=String.copyValueOf(p.geek_Password(4));
+          
             
+            pst.setString(5,login);
+            pst.setString(6,passwords);
+            String arg="hi! your login id is "+login+" and your password is "+passwords;
+
             System.out.print(arg);
-             
-             pst.setString(5, login);
-             pst.setString(6, passwords);
+
           
-             
-          
-            
-            
-             if((name.getText().trim().equals("")||contactno.getText().trim().equals("")||email.getText().trim().equals("")||address.getText().trim().equals("")))
+            if((name.getText().trim().equals("")||contactno.getText().trim().equals("")||email.getText().trim().equals("")||address.getText().trim().equals("")))
             {
-                  JOptionPane.showMessageDialog(null,"FILL ALL THE FIELDS!");
-               
+                JOptionPane.showMessageDialog(null,"FILL ALL THE FIELDS!");
+
             }
-             else
-             {
-                  rs = (OracleResultSet) pst.executeQuery();
-                  rs1 = (OracleResultSet) pst1.executeQuery();
+            else
+            {
+                rs = (OracleResultSet) pst.executeQuery();
+               
                 JOptionPane.showMessageDialog(null,"DATA SAVED.");
-                 Mains m=new Mains();
-                  m.mail(arg,email_id);
-                   JOptionPane.showMessageDialog(null,"MAIL SENT TO THE USER");
+                Mains m=new Mains();
+                m.mail(arg,email_id);
+                JOptionPane.showMessageDialog(null,"MAIL SENT TO THE USER");
                 this.setVisible(false);
-             }
-             
-             
-            
-            
+            }
 
         }catch(Exception e){
-        JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e);
         }
-            
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IDActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      
-            
+              conn=DatabaseConnection.connectdb();
+
+        try{
+
+            String sql = "update customer_details set name=?,contact=?,email=?,address=? where login=?";
+            pst = (OraclePreparedStatement) conn.prepareStatement(sql);
+
+            pst.setString(1,name.getText());
+            pst.setString(2, contactno.getText());
+            pst.setString(3, email.getText());
+            pst.setString(4, address.getText());
+             pst.setString(5, fetchid.getText());
+              rs = (OracleResultSet) pst.executeQuery();
+              if(rs.next())
+              {
+                  JOptionPane.showMessageDialog(null,"ROW UPDATED");
+              }
+ 
+           
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void fetchidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fetchidActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        conn=DatabaseConnection.connectdb();
+        String fetch_id=fetchid.getText();
+        try{
+            String sql="select name,contact,email,address from customer_details where login=?";
+            pst = (OraclePreparedStatement)conn.prepareStatement(sql);
+            pst.setString(1,fetchid.getText());
+
+           rs = (OracleResultSet) pst.executeQuery();
+           if(rs.next())
+           {
+               String names=rs.getString("name");
+               name.setText(names);
+               String mob=rs.getString("contact");
+               contactno.setText(mob);
+               String mail_id=rs.getString("email");
+               email.setText(mail_id);
+               String pta=rs.getString("address");
+               address.setText(pta);
+              
+           }
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,12 +398,16 @@ public class Add_Customer_1 extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ID;
     private javax.swing.JTextArea address;
     private javax.swing.JTextField contactno;
+    private java.util.List<ADMIN.CustomerDetails> customerDetailsList;
+    private javax.persistence.Query customerDetailsQuery;
     private javax.swing.JTable demo;
     private javax.swing.JTextField email;
+    private javax.persistence.EntityManager entityManager;
+    private javax.swing.JTextField fetchid;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -333,16 +415,18 @@ public class Add_Customer_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField name;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
  class Mains {
 
     private static String USER_NAME = "kamaldeepsingh816";  // GMail user name (just the part before "@gmail.com")
-    private static String PASSWORD = "xyz"; // GMail password
+    private static String PASSWORD = "ks30011997"; // GMail password
 
 
     public void mail(String args,String email_id) {

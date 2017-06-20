@@ -79,6 +79,11 @@ public class Check_bill extends javax.swing.JFrame {
         jLabel5.setText("Specials(if any):");
 
         chapatis.setEditable(false);
+        chapatis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chapatisActionPerformed(evt);
+            }
+        });
 
         rice.setEditable(false);
 
@@ -233,12 +238,16 @@ public class Check_bill extends javax.swing.JFrame {
 
     private void paybill(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paybill
         // TODO add your handling code here:
-        JLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("bill1.jpe")));
+        
     }//GEN-LAST:event_paybill
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void chapatisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chapatisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chapatisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,7 +290,7 @@ public class Check_bill extends javax.swing.JFrame {
             }
         });
         
-       String a=ID.getText();
+       
        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
