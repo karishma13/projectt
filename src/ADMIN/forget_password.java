@@ -141,14 +141,15 @@ public class forget_password extends javax.swing.JFrame {
             String passwords=String.copyValueOf(p.geek_Password(4));
             
             String arg="Hi.Your new password is "+passwords;
-             email m=new email();
+            
              try{
-                  m.mail(arg,to);
-                  JOptionPane.showMessageDialog(null,"new password sent to your email");
+                  email m=new email();
+                    m.mail(arg,to);
+                    JOptionPane.showMessageDialog(null,"new password sent to your email");
              }
              catch(Exception e)
              {
-                 JOptionPane.showMessageDialog(null,"please enter a valid email id");
+                    JOptionPane.showMessageDialog(null,"please enter a valid email id");
              }
                   
                   

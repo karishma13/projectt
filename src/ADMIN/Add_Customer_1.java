@@ -190,6 +190,13 @@ public class Add_Customer_1 extends javax.swing.JFrame {
 
         jScrollPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        demo = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int column)
+            {
+                return false;//This causes all cells to be not editable
+            }
+        };
+
         org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, customerDetailsList, demo);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${password}"));
         columnBinding.setColumnName("Password");
@@ -212,6 +219,14 @@ public class Add_Customer_1 extends javax.swing.JFrame {
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
         jScrollPane2.setViewportView(demo);
+        if (demo.getColumnModel().getColumnCount() > 0) {
+            demo.getColumnModel().getColumn(0).setHeaderValue("Password");
+            demo.getColumnModel().getColumn(1).setHeaderValue("Login");
+            demo.getColumnModel().getColumn(2).setHeaderValue("Address");
+            demo.getColumnModel().getColumn(3).setHeaderValue("Email");
+            demo.getColumnModel().getColumn(4).setHeaderValue("Contact");
+            demo.getColumnModel().getColumn(5).setHeaderValue("Name");
+        }
 
         jLabel1.setFont(new java.awt.Font("Vani", 2, 18)); // NOI18N
         jLabel1.setText("ENTER CUSTOMER DETAILS");
@@ -263,6 +278,8 @@ public class Add_Customer_1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        // kmaldee
+        // dd
       
 
         conn=DatabaseConnection.connectdb();
@@ -364,6 +381,10 @@ public class Add_Customer_1 extends javax.swing.JFrame {
                String pta=rs.getString("address");
                address.setText(pta);
               
+           }
+           else
+           {
+               JOptionPane.showMessageDialog(null,"ID DOES NOT EXIST");
            }
         }
         catch(Exception e)

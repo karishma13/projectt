@@ -47,7 +47,7 @@ public class adminscreen extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 14)); // NOI18N
-        jButton1.setText("SPECIAL  ORDERS");
+        jButton1.setText("VIEW ORDERS");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -101,6 +101,7 @@ public class adminscreen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -127,7 +128,7 @@ public class adminscreen extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         
-        Check_bill obj=new Check_bill();
+        viewBills obj=new viewBills();
         obj.setVisible(true);
         
     }//GEN-LAST:event_jButton8ActionPerformed

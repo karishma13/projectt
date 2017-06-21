@@ -5,6 +5,7 @@
  */
 package ADMIN;
 
+import customer.viewMenu;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import oracle.jdbc.OraclePreparedStatement;
@@ -194,6 +195,7 @@ public class login extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null,"login was successful...");
                 this.setVisible(false);
+                
                 adminscreen  obj=new adminscreen();
                 obj.setVisible(true);
 

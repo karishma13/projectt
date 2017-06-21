@@ -11,6 +11,7 @@ package customer;
  */
 import ADMIN.DatabaseConnection;
 import ADMIN.adminscreen;
+import ADMIN.view_orders;
 import java.awt.TextField;
 import java.sql.Connection;
 import javax.swing.JFrame;
@@ -30,14 +31,15 @@ public class login extends javax.swing.JFrame {
         OracleResultSet rs=null;
         OraclePreparedStatement pst1=null;
         OracleResultSet rs1=null;
-        String loginid="";
-        String password="";
+       
+        
         
     
     public login() {
         initComponents();
     }
-
+   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -209,19 +211,24 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
         conn1=DatabaseConnection.connectdb();
         try{
-            System.out.print("hello");
+           
             String sql1="select * from customer_details where login=? and password=?";
+            
+            
             pst1=(OraclePreparedStatement) conn1.prepareStatement(sql1);
             pst1.setString(1,login_id.getText());
             pst1.setString(2,passwords.getText());
             rs1=(OracleResultSet)pst1.executeQuery();
-
+          
             if(rs1.next())
             {
                 JOptionPane.showMessageDialog(null,"login was successful...");
-                loginid=login_id.getText();
-                password=passwords.getText();
-
+                 
+                String id=(login_id.getText());
+                loggedin.uID=id;
+                String name=rs1.getString("login");
+                loggedin.userName=name;
+                
                 this.setVisible(false);
                 customer cus=new customer();
                 cus.setVisible(true);
@@ -237,6 +244,8 @@ public class login extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, e);
         }
+        
+        
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
