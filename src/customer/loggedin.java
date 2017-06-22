@@ -12,5 +12,12 @@ package customer;
 public class loggedin {
     public static String uID;
     public static String userName;
+    public static String addr;
+    public static String contact;
+    
+    
+    
+    
+     
     
 }

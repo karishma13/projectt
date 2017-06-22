@@ -11,6 +11,9 @@ import javax.swing.JOptionPane;
 import oracle.jdbc.OraclePreparedStatement;
 import oracle.jdbc.OracleResultSet;
 import customer.login;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.JCheckBox;
 
 /**
  *
@@ -24,6 +27,7 @@ public class viewMenu extends javax.swing.JFrame {
      Connection conn=null;
       
         OraclePreparedStatement pst=null;
+            OraclePreparedStatement pst1=null;
         OracleResultSet rs=null;
         String str1="";
         String str2="";
@@ -67,7 +71,8 @@ for(int i=0; i < data.length; i++){
         option3.setText(str3);
         option4.setText(str4);
         
-        lbl.setText("kamal");
+        lbl.setText(loggedin.uID);
+        name.setText(loggedin.userName);
         
         
        
@@ -104,6 +109,8 @@ for(int i=0; i < data.length; i++){
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lbl = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,6 +131,11 @@ for(int i=0; i < data.length; i++){
         });
 
         option1.setText("jCheckBox1");
+        option1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                option1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -209,6 +221,10 @@ for(int i=0; i < data.length; i++){
 
         lbl.setText("1");
 
+        jLabel4.setText("Name");
+
+        name.setText("jLabel5");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -223,9 +239,13 @@ for(int i=0; i < data.length; i++){
                 .addGap(215, 215, 215))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
-                .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
@@ -248,6 +268,10 @@ for(int i=0; i < data.length; i++){
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3)
                                     .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(name))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(94, 94, 94)
@@ -273,19 +297,33 @@ for(int i=0; i < data.length; i++){
         
         conn=DatabaseConnection.connectdb();
         try{
-        String sql="insert into view_orders(choice1,choice2,choice3,choice4,chapatis) values(?,?,?,?,?)";
+        String sql="insert into view_orders(name,contact,order_details,address,login_id) values(?,?,?,?,?)";
          pst = (OraclePreparedStatement) conn.prepareStatement(sql);
+         
+        String order_details="";
+         
          if(option1.isSelected()==true)
-            pst.setString(1,str1);
+            order_details=order_details+" "+str1;
            if(option2.isSelected()==true)
-            pst.setString(2,str2);
+            order_details=order_details+" "+str2;
              if(option3.isSelected()==true)
-            pst.setString(3,str3);
+           order_details=order_details+" "+str3;
                if(option4.isSelected()==true)
-            pst.setString(4,str4);
+            order_details=order_details+" "+str4;
                
-               pst.setInt(5,Integer.parseInt(chapati.getItemAt(chapati.getSelectedIndex())));
+               String value = (String) chapati.getSelectedItem();
                
+               order_details=order_details+" "+"chapatis-"+"value";
+               pst.setString(1,loggedin.userName);
+                pst.setString(3,order_details);
+                pst.setString(2,loggedin.contact);
+                pst.setString(4,loggedin.addr);
+               pst.setString(5,loggedin.uID);
+              
+               
+         
+        
+            
            rs = (OracleResultSet) pst.executeQuery();
            
             JOptionPane.showMessageDialog(null,"ORDER PLACED!");
@@ -298,9 +336,14 @@ for(int i=0; i < data.length; i++){
             
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
     private void option4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_option4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_option4ActionPerformed
+
+    private void option1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_option1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_option1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,9 +388,11 @@ for(int i=0; i < data.length; i++){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl;
+    private javax.swing.JLabel name;
     private javax.swing.JCheckBox option1;
     private javax.swing.JCheckBox option2;
     private javax.swing.JCheckBox option3;

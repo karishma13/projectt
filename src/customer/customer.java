@@ -91,6 +91,11 @@ public class customer extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 14)); // NOI18N
         jButton5.setText("LOGOUT");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 14)); // NOI18N
         jLabel3.setText("WELCOME");
@@ -177,6 +182,12 @@ public class customer extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new login().setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -218,6 +218,7 @@ public class login extends javax.swing.JFrame {
             pst1=(OraclePreparedStatement) conn1.prepareStatement(sql1);
             pst1.setString(1,login_id.getText());
             pst1.setString(2,passwords.getText());
+            
             rs1=(OracleResultSet)pst1.executeQuery();
           
             if(rs1.next())
@@ -226,8 +227,12 @@ public class login extends javax.swing.JFrame {
                  
                 String id=(login_id.getText());
                 loggedin.uID=id;
-                String name=rs1.getString("login");
+                String name=rs1.getString("name");
                 loggedin.userName=name;
+                String contact=rs1.getString("contact");
+                String addr=rs1.getString("address");
+                loggedin.contact=contact;
+                loggedin.addr=addr;
                 
                 this.setVisible(false);
                 customer cus=new customer();

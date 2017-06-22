@@ -11,7 +11,7 @@ import javax.mail.internet.MimeMessage;
 public class email{
 
     private static String USER_NAME = "kamaldeepsingh816";  // GMail user name (just the part before "@gmail.com")
-    private static String PASSWORD = "ks30011997"; // GMail password
+    private static String PASSWORD = "xyz"; // GMail password
 
 
     public void mail(String args,String email_id) {
