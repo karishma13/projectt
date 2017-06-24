@@ -1,4 +1,4 @@
-/*
+*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -33,6 +33,8 @@ public class view_orders extends javax.swing.JFrame {
         viewOrdersList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : viewOrdersQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,9 +49,6 @@ public class view_orders extends javax.swing.JFrame {
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${loginId}"));
         columnBinding.setColumnName("Login Id");
         columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${address}"));
-        columnBinding.setColumnName("Address");
-        columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${orderDetails}"));
         columnBinding.setColumnName("Order Details");
         columnBinding.setColumnClass(String.class);
@@ -63,19 +62,38 @@ public class view_orders extends javax.swing.JFrame {
         jTableBinding.bind();
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 14)); // NOI18N
+        jLabel1.setText("ORDERS FOR THE DATE:");
+
+        jTextField2.setEditable(false);
+        jTextField2.setText("\n");
+        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 912, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                .addGap(8, 8, 8)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -121,8 +139,10 @@ public class view_orders extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager entityManager;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField2;
     private java.util.List<ADMIN.ViewOrders> viewOrdersList;
     private javax.persistence.Query viewOrdersQuery;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;

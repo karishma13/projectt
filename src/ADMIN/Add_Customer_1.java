@@ -76,7 +76,7 @@ public class Add_Customer_1 extends javax.swing.JFrame {
         setBackground(new java.awt.Color(153, 153, 255));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel2.setText("NAME");
@@ -189,7 +189,7 @@ public class Add_Customer_1 extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        jScrollPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         demo = new javax.swing.JTable(){
             public boolean isCellEditable(int row, int column)
@@ -220,14 +220,12 @@ public class Add_Customer_1 extends javax.swing.JFrame {
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
         jScrollPane2.setViewportView(demo);
-        if (demo.getColumnModel().getColumnCount() > 0) {
-            demo.getColumnModel().getColumn(0).setHeaderValue("Password");
-            demo.getColumnModel().getColumn(1).setHeaderValue("Login");
-            demo.getColumnModel().getColumn(2).setHeaderValue("Address");
-            demo.getColumnModel().getColumn(3).setHeaderValue("Email");
-            demo.getColumnModel().getColumn(4).setHeaderValue("Contact");
-            demo.getColumnModel().getColumn(5).setHeaderValue("Name");
-        }
+        demo.getColumnModel().getColumn(0).setHeaderValue("Password");
+        demo.getColumnModel().getColumn(1).setHeaderValue("Login");
+        demo.getColumnModel().getColumn(2).setHeaderValue("Address");
+        demo.getColumnModel().getColumn(3).setHeaderValue("Email");
+        demo.getColumnModel().getColumn(4).setHeaderValue("Contact");
+        demo.getColumnModel().getColumn(5).setHeaderValue("Name");
 
         jLabel1.setFont(new java.awt.Font("Vani", 2, 18)); // NOI18N
         jLabel1.setText("ENTER CUSTOMER DETAILS");
@@ -235,6 +233,8 @@ public class Add_Customer_1 extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Vani", 2, 18)); // NOI18N
         jLabel7.setText("EXISTING DATABASE");
 
+        jButton4.setBackground(new java.awt.Color(204, 204, 204));
+        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 10)); // NOI18N
         jButton4.setText("HOME");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,18 +248,19 @@ public class Add_Customer_1 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(

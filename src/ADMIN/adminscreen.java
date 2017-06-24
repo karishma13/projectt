@@ -45,8 +45,9 @@ public class adminscreen extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FOO20.jpe"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 510));
 
+        jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 14)); // NOI18N
         jButton1.setText("LOGOUT");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -54,8 +55,9 @@ public class adminscreen extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, 100, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 460, 100, 30));
 
+        jButton9.setBackground(new java.awt.Color(153, 153, 255));
         jButton9.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 14)); // NOI18N
         jButton9.setText("CLOSE ACCOUNT");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -63,8 +65,9 @@ public class adminscreen extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 260, 70));
+        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 260, 70));
 
+        jButton8.setBackground(new java.awt.Color(153, 153, 255));
         jButton8.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 14)); // NOI18N
         jButton8.setText("VIEW BILL");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -72,8 +75,9 @@ public class adminscreen extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 260, 70));
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 260, 70));
 
+        jButton7.setBackground(new java.awt.Color(153, 153, 255));
         jButton7.setFont(new java.awt.Font("Yu Mincho Demibold", 1, 14)); // NOI18N
         jButton7.setText("ADD A NEW CUSTOMER");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -81,8 +85,9 @@ public class adminscreen extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 260, 70));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 260, 70));
 
+        jButton6.setBackground(new java.awt.Color(153, 153, 255));
         jButton6.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 14)); // NOI18N
         jButton6.setText("SET MENU");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -92,11 +97,13 @@ public class adminscreen extends javax.swing.JFrame {
         });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 260, 70));
 
+        jLabel1.setBackground(new java.awt.Color(153, 153, 255));
         jLabel1.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 14)); // NOI18N
-        jLabel1.setText("WELCOME");
+        jLabel1.setText(" WELCOME");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 80, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 90, -1));
 
+        jButton3.setBackground(new java.awt.Color(153, 153, 255));
         jButton3.setFont(new java.awt.Font("Yu Mincho Demibold", 0, 14)); // NOI18N
         jButton3.setText("VIEW ORDERS");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +111,7 @@ public class adminscreen extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 260, 70));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 260, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
